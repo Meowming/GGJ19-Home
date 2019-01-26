@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 public class Starttext : MonoBehaviour {
 
     // Use this for initialization
-    public void StartGame()
+    void Update()
     {
-            SceneManager.LoadScene("Tutorial");
- 
-        
+        if (Input.anyKeyDown)
+        {
+            Application.LoadLevel("Tutorial");
+        }
+
+
     }
 }
