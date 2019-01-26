@@ -6571,11 +6571,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodes:
-  - {x: 5, y: 5, z: -10}
+  - {x: 7.23, y: 5, z: -10}
   - {x: 6, y: 6, z: -10}
-  - {x: 7, y: 7, z: -10}
+  - {x: 3.65, y: 10, z: -10}
+  - {x: 2.56, y: 3.66, z: -10}
   - {x: 0, y: 0, z: -10}
-  - {x: 0, y: 0, z: -10}
+  cnt: 0
 --- !u!4 &932259083
 Transform:
   m_ObjectHideFlags: 0
