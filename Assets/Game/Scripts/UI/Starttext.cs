@@ -7,7 +7,7 @@ public class Starttext : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(Input.anyKey)
+		if(Input.GetKeyDown(KeyCode.Space))
         {
             Application.LoadLevel("Tutorial");
         }
