@@ -7,20 +7,25 @@ public class Bullet : MonoBehaviour {
     private Rigidbody2D rgbd2d;
     [SerializeField] private bool guided;
     [SerializeField] private float speed;
+    private Vector2 direction;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         rgbd2d = GetComponent<Rigidbody2D>();
-        Vector2 direction = (target.transform.position - transform.position).normalized;
+        if (target != null)
+        {
+            direction = (target.transform.position - transform.position).normalized;
+            rgbd2d.velocity = direction * speed;
+        }
 
-        rgbd2d.velocity = direction * speed;
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
-		if(guided)
+		if(guided && target != null)
         {
-            Vector2 direction = (target.transform.position - transform.position).normalized;
+            direction = (target.transform.position - transform.position).normalized;
 
             rgbd2d.velocity = direction * speed;
         }

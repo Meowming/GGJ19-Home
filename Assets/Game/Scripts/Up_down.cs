@@ -12,8 +12,8 @@ public class Up_down : MonoBehaviour {
 	private Rotate s1PrefabRotate;
 	private Rotate s2PrefabRotate;
 	private Rotate s3PrefabRotate;
-	private Collider2D m_collider;
-    private Rigidbody2D m_Rigidbody;
+	//private Collider2D m_collider;
+   // private Rigidbody2D m_Rigidbody;
     private bool isMatch;
     private float final;
 
@@ -23,8 +23,8 @@ public class Up_down : MonoBehaviour {
 		s1PrefabRotate = s1Prefab.GetComponent<Rotate> ();
 		s2PrefabRotate = s2Prefab.GetComponent<Rotate> ();
 		s3PrefabRotate = s3Prefab.GetComponent<Rotate> ();
-		m_collider = this.GetComponent<Collider2D>();
-        m_Rigidbody = this.GetComponent<Rigidbody2D>();
+		//m_collider = this.GetComponent<Collider2D>();
+       // m_Rigidbody = this.GetComponent<Rigidbody2D>();
         final = this.transform.position.y - distant;
     }
 

@@ -20,6 +20,9 @@ namespace UnityStandardAssets._2D
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
+        public bool isDead = false;
+        public bool enableMovment = true;
+
         private void Awake()
         {
             // Setting up references.
@@ -51,6 +54,8 @@ namespace UnityStandardAssets._2D
 
         public void Move(float move, bool crouch, bool jump)
         {
+            if (!enableMovment)
+                return;
             /*
             // If crouching, check to see if the character can stand up
             if (!crouch && m_Anim.GetBool("Crouch"))
@@ -118,7 +123,7 @@ namespace UnityStandardAssets._2D
         {
             if(collision.collider.CompareTag("Enemy"))
             {
-
+                isDead = true;
             }
         }
     }
