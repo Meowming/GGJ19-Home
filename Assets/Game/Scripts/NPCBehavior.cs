@@ -13,11 +13,13 @@ public class NPCBehavior : MonoBehaviour
     public GameObject diaBox;
     static public bool finished =false;
 
+    private GameController gameController;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
 
     IEnumerator Type()
@@ -36,6 +38,7 @@ public class NPCBehavior : MonoBehaviour
             StartCoroutine(Type());
             diaBox.SetActive(true);
             wannatalk = false;
+            gameController.SetControl(false);
         }
       
 
@@ -55,6 +58,7 @@ public class NPCBehavior : MonoBehaviour
             textDisplay.text = "";
             diaBox.SetActive(false);
             finished = true;
+            gameController.SetControl(true);
         }
     }
     // Update is called once per frame

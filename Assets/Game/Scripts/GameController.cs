@@ -11,7 +11,7 @@ using UnityStandardAssets._2D;
 
         private int level = 0;
         private PlatformerCharacter2D playerScript;
-        private bool enableControl;
+        [SerializeField]private bool enableControl = true;
 
         private void Awake()
         {
@@ -32,10 +32,6 @@ using UnityStandardAssets._2D;
             {
                 playerScript = player.GetComponent<PlatformerCharacter2D>();
             }
-            else
-            {
-
-            }
         }
 
         // Use this for initialization
@@ -45,7 +41,7 @@ using UnityStandardAssets._2D;
         // Update is called once per frame
         void Update() {
 
-            if (enableControl)
+            if (!enableControl)
             {
                 playerScript.enableMovment = false;
             }
@@ -54,7 +50,19 @@ using UnityStandardAssets._2D;
                 playerScript.enableMovment = true;
             }
 
+        if (playerScript.isDead)
+            LoadDeadScene();
         }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    void LoadDeadScene()
+    {
+        SceneManager.LoadScene("Dead");
+    }
 
     public void SetControl(bool control)
     {
