@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class pingtu : MonoBehaviour {
-    //private Collider2D m_collider;
     private int rightPosition = 2;
     [SerializeField] public GameObject solutionPrefab;
     [SerializeField] public float sol_x;
     [SerializeField] public float sol_y;
+    [SerializeField] public GameObject trickPrefab;
     [SerializeField] public GameObject s1Prefab;
     [SerializeField] public GameObject s2Prefab;
     [SerializeField] public GameObject s3Prefab;
@@ -36,8 +36,10 @@ public class pingtu : MonoBehaviour {
     private Rotate_4 s12PrefabRotate;
     private Rotate_4 s13PrefabRotate;
     private Rotate_4 s14PrefabRotate;
+    private trick trickPrefab_check;
     private bool isMatch = false;
     private bool print = false;
+    private bool active = false;
 
 
     // Use this for initialization
@@ -56,6 +58,7 @@ public class pingtu : MonoBehaviour {
         s12PrefabRotate = s12Prefab.GetComponent<Rotate_4>();
         s13PrefabRotate = s13Prefab.GetComponent<Rotate_4>();
         s14PrefabRotate = s14Prefab.GetComponent<Rotate_4>();
+        trickPrefab_check = trickPrefab.GetComponent<trick>();
        // m_collider = this.GetComponent<Collider2D>();
 
     }
@@ -63,7 +66,8 @@ public class pingtu : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         checkMatch();
-        if (isMatch && !print)
+        if (trickPrefab_check.Get_lowCheck()) { active = true; }
+        if (isMatch && !print && active)
         {
             Vector3 position = new Vector3(sol_x, sol_y, 0);
             Instantiate(solutionPrefab, position, Quaternion.identity);
@@ -90,6 +94,7 @@ public class pingtu : MonoBehaviour {
             {
                 isMatch = true;
             }
+           
         
     }
 }
