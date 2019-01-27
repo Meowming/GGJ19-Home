@@ -39,7 +39,7 @@ namespace UnityStandardAssets._2D
             Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
             for (int i = 0; i < colliders.Length; i++)
             {
-                if (colliders[i].gameObject != gameObject)
+                if (colliders[i].gameObject != gameObject && !colliders[i].gameObject.CompareTag("Monologue"))
                     m_Grounded = true;
             }
             m_Anim.SetBool("Ground", m_Grounded);
@@ -51,6 +51,7 @@ namespace UnityStandardAssets._2D
 
         public void Move(float move, bool crouch, bool jump)
         {
+            /*
             // If crouching, check to see if the character can stand up
             if (!crouch && m_Anim.GetBool("Crouch"))
             {
@@ -63,6 +64,8 @@ namespace UnityStandardAssets._2D
 
             // Set whether or not the character is crouching in the animator
             m_Anim.SetBool("Crouch", crouch);
+            */
+
 
             //only control the player if grounded or airControl is turned on
             if (m_Grounded || m_AirControl)
@@ -109,6 +112,14 @@ namespace UnityStandardAssets._2D
             Vector3 theScale = transform.localScale;
             theScale.x *= -1;
             transform.localScale = theScale;
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if(collision.collider.CompareTag("Enemy"))
+            {
+
+            }
         }
     }
 }
