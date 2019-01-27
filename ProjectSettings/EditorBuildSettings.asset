@@ -17,3 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/electric.unity
     guid: 09c16956df834cb4d9139c57375f4148
+  - enabled: 1
+    path: Assets/Game/Scenes/calling cg.unity
+    guid: f9661714a0796b34ea33d22be5d785dd
+  - enabled: 1
+    path: Assets/Game/Scenes/level2.unity
+    guid: a1bf0a1dff602f74ea5a5b2da0db123d
+  - enabled: 1
+    path: Assets/Game/Scenes/Ending.unity
+    guid: 2c14a63f90bdbe24b9538488cf92a301
