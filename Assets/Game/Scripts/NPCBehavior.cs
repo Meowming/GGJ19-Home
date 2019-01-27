@@ -5,6 +5,7 @@ using TMPro;
 
 public class NPCBehavior : MonoBehaviour
 {
+    private bool wannatalk = true;
     public TextMeshProUGUI textDisplay;
     public string[] lines;
     private int index = 0;
@@ -28,17 +29,17 @@ public class NPCBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player")&& wannatalk ==true)
         {
             StartCoroutine(Type());
             diaBox.SetActive(true);
+            wannatalk = false;
         }
-        else
-        {
-            diaBox.SetActive(false);
-        }
+      
 
     }
+
+    
     void NextLine()
     {
         if (index < lines.Length - 1)
@@ -50,6 +51,7 @@ public class NPCBehavior : MonoBehaviour
         else
         {
             textDisplay.text = "";
+            diaBox.SetActive(false);
         }
     }
     // Update is called once per frame
