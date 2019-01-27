@@ -23,7 +23,7 @@ public class transtot1 : MonoBehaviour {
         }
         if (m_Scene.name == "transmit1")
         {
-            names = "electric";
+            names = "level2";
         }
         if (m_Scene.name == "transbeforeend")
         {

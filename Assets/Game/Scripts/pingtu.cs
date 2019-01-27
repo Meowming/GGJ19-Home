@@ -41,6 +41,7 @@ public class pingtu : MonoBehaviour {
     private bool print = false;
     private bool active = true;
 
+    public Entity door;
 
     // Use this for initialization
     void Start () {
@@ -58,7 +59,7 @@ public class pingtu : MonoBehaviour {
         s12PrefabRotate = s12Prefab.GetComponent<Rotate_4>();
         s13PrefabRotate = s13Prefab.GetComponent<Rotate_4>();
         s14PrefabRotate = s14Prefab.GetComponent<Rotate_4>();
-        trickPrefab_check = trickPrefab.GetComponent<trick>();
+        //trickPrefab_check = trickPrefab.GetComponent<trick>();
        // m_collider = this.GetComponent<Collider2D>();
 
     }
@@ -66,11 +67,12 @@ public class pingtu : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         checkMatch();
-        if (trickPrefab_check.Get_lowCheck()) { active = true; }
+        //if (trickPrefab_check.Get_lowCheck()) { active = true; }
         if (isMatch && !print && active)
         {
-            Vector3 position = new Vector3(sol_x, sol_y, 0);
+            Vector3 position = new Vector3(sol_x, sol_y, -15);
             Instantiate(solutionPrefab, position, Quaternion.identity);
+            door.TriggerStart();
             print = true;
         }
     }

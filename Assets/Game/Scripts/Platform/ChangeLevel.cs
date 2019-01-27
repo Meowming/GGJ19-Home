@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ChangeLevel : Entity {
+public class ChangeLevel : MonoBehaviour{
     public int index = 0;
 	// Use this for initialization
 	void Start () {
@@ -14,13 +14,9 @@ public class ChangeLevel : Entity {
 	void Update () {
 		
 	}
+	void OnTriggerEnter2D()
+	{
+		SceneManager.LoadScene(index);
+	}
 
-    public void TriggerStart()
-    {
-        SceneManager.LoadScene(index);
-    }
-    public override void TriggerEnd()
-    {
-        return;
-    }
 }
