@@ -19,12 +19,12 @@ public class Button : MonoBehaviour {
         if (isPlayerOnly && collision.tag == "Player")
             foreach (Entity target in targets)
             {
-                target.TriggerEnter();
+                target.TriggerStart();
             }
         else
             foreach (Entity target in targets)
             {
-                target.TriggerEnter();
+                target.TriggerStart();
             }
     }
 }
