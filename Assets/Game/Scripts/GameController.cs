@@ -12,6 +12,9 @@ using UnityStandardAssets._2D;
         private int level = 0;
         private PlatformerCharacter2D playerScript;
         [SerializeField]private bool enableControl = true;
+	private bool deadScene = false;
+
+	public string activeSceneName;
 
         private void Awake()
         {
@@ -26,6 +29,13 @@ using UnityStandardAssets._2D;
 
             DontDestroyOnLoad(gameObject);
 
+		if (SceneManager.GetActiveScene().name == "Dead") {
+			Debug.Log ("Dead Scene Loaded");
+		} else {
+			//playerScript.isDead = false;
+			activeSceneName = SceneManager.GetActiveScene().name;
+			player = GameObject.FindGameObjectWithTag("Player");
+		}
             player = GameObject.FindGameObjectWithTag("Player");
 
             if (player != null)
@@ -36,6 +46,7 @@ using UnityStandardAssets._2D;
 
         // Use this for initialization
         void Start() {
+			
         }
 
         // Update is called once per frame
@@ -50,18 +61,30 @@ using UnityStandardAssets._2D;
                 playerScript.enableMovment = true;
             }
 
-        if (playerScript.isDead)
+		if (playerScript.isDead && !deadScene)
             LoadDeadScene();
         }
 
     private void OnLevelWasLoaded(int level)
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+		if (SceneManager.GetActiveScene().name == "Dead") {
+			Debug.Log ("Dead Scene Loaded");
+		} else {
+			//playerScript.isDead = false;
+			deadScene = false;
+			activeSceneName = SceneManager.GetActiveScene().name;
+			player = GameObject.FindGameObjectWithTag("Player");
+			if (player != null)
+			{
+				playerScript = player.GetComponent<PlatformerCharacter2D>();
+			}
+		}
     }
 
     void LoadDeadScene()
     {
         SceneManager.LoadScene("Dead");
+		deadScene = true;
     }
 
     public void SetControl(bool control)
