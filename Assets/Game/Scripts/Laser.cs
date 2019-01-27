@@ -3,23 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Laser : MonoBehaviour {
-    [SerializeField] private float xDirection;
-    [SerializeField] private float yDirection;
     [SerializeField] private float distance;
-    private Vector2 direction;
+    [SerializeField] private Transform firePosition;
+    [SerializeField] private GameObject laserBeans;
+
+    [SerializeField] private float fireInterval;
+    [SerializeField] private float fireTime;
+    private float nextFire;
+    private float fireEnd;
+    private GameObject laserBeanIns;
 
 	// Use this for initialization
 	void Start () {
-        direction = new Vector2(xDirection, yDirection);
-	}
+        nextFire = Time.time + fireInterval;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        RaycastHit2D laserBean = Physics2D.Raycast(transform.position, direction, distance);
 
-        if(laserBean.collider.CompareTag("player"))
+        if (Time.time >= nextFire)
         {
-
+            Fire();
+        }
+        
+        if(Time.time >=fireEnd)
+        {
+            FireEnd();
         }
 	}
+
+    void Fire()
+    {
+        laserBeanIns = Instantiate(laserBeans, firePosition.position, transform.rotation);
+
+        laserBeanIns.transform.localScale = new Vector2(distance / 4, 1);
+        fireEnd = Time.time + fireTime;
+        nextFire = Time.time + fireInterval+ fireTime;
+    }
+
+    void FireEnd()
+    {
+        Destroy(laserBeanIns);
+        fireEnd = Time.time + fireInterval + fireTime;
+        nextFire = Time.time + fireInterval;
+    }
 }
