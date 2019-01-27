@@ -1918,6 +1918,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1155807004}
   - component: {fileID: 1155807005}
+  - component: {fileID: 1155807006}
   m_Layer: 0
   m_Name: HERE
   m_TagString: Untagged
@@ -1947,7 +1948,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 4.112608, y: -0.9020004}
@@ -1963,6 +1964,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 19.687012, y: 2.8040009}
   m_EdgeRadius: 0
+--- !u!114 &1155807006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1155807003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53146f0133d3d1d40a630b35c5ddc00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1160389828
 Prefab:
   m_ObjectHideFlags: 0

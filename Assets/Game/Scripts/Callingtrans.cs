@@ -35,6 +35,11 @@ public class Callingtrans : MonoBehaviour {
                 SceneManager.LoadScene("Ending");
                 NPCBehavior.finished = false;
             }
+            if(m_Scene.name == "level4")
+            {
+                SceneManager.LoadScene("transbeforeend");
+                NPCBehavior.finished = false;
+            }
 
         }
     }
