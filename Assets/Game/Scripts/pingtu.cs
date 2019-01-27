@@ -39,7 +39,7 @@ public class pingtu : MonoBehaviour {
     private trick trickPrefab_check;
     private bool isMatch = false;
     private bool print = false;
-    private bool active = false;
+    private bool active = true;
 
 
     // Use this for initialization
