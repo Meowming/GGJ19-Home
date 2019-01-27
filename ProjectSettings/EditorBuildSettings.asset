@@ -14,3 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/Resume.unity
     guid: 24cc91d49231b5d4ba2ad407617eb38f
+  - enabled: 1
+    path: Assets/Game/Scenes/electric.unity
+    guid: 09c16956df834cb4d9139c57375f4148
