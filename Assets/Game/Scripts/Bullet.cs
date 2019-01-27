@@ -15,9 +15,10 @@ public class Bullet : MonoBehaviour {
         if (target != null)
         {
             direction = (target.transform.position - transform.position).normalized;
+            rgbd2d.velocity = direction * speed;
         }
 
-        rgbd2d.velocity = direction * speed;
+        
     }
 	
 	// Update is called once per frame
