@@ -9,7 +9,6 @@ public class Player : MonoBehaviour {
 	private Collider2D m_collider;
 	private int score = 0;
 	private bool isGrounded = false;
-
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -65,31 +64,10 @@ public class Player : MonoBehaviour {
 			Jump();
 		}
 
-		if (Input.GetKeyDown(KeyCode.Mouse0))
-		{
-			Debug.Log("Shoot");
-			Shoot();
-		}
+
 	}
 
-	void Shoot()
-	{
-		// A Raycast is an invisible line that is shot in a given direction to check for colliders
-		// Similar to "hitscan" mechanics in first-person shooters
-		// A RaycastHit2D is returned which is basically an object that contains some info about what was hit
-		RaycastHit2D hitInfo = Physics2D.Raycast(this.transform.position, Vector2.right);   // This will shoot a ray originating from the Player's position and extending infinitely to the right
-		Debug.DrawRay(this.transform.position, Vector2.right*9001, Color.green, 0.1f);  // We can use Debug.DrawRay to visualize what the ray looks like. (Multiply direction by a very large number
-		//  to make the drawn ray longer.
-		// Make sure Gizmos are enabled in your Scene and Game view to see it.
-		//RaycastHit2D hitInfo = Physics2D.Raycast(this.transform.position, Vector2.right, 1f); // We can add a 3rd parameter to limit the length of the ray, so it doesn't extend infinitely
 
-		// If we hit something, and the thing we hit happened to be tagged Enemy, destroy it.
-		if (hitInfo && hitInfo.collider.CompareTag("Enemy"))    // if (hitInfo) is a null-check. It'll check if we hit something first before we even check if that thing is tagged Enemy.
-		{
-			//Debug.Log(hitInfo.collider.name);
-			Destroy(hitInfo.collider.gameObject);
-		}
-	}
 
 	void Jump()
 	{
@@ -110,17 +88,7 @@ public class Player : MonoBehaviour {
 		m_rigidbody.velocity = new Vector2(movementModifier * speed, currentVelocity.y);
 	}
 
-	// Get's called on the exact frame that we touch a trigger
-	void OnTriggerEnter2D(Collider2D collider)
-	{
-		// If we collide with something that's tagged as a Coin: Destroy it, increase our score, and log our new score to the console
-		if (collider.CompareTag("Coin"))    // CompareTag is more efficient than doing collider.tag == "Coin"
-		{
-			Destroy(collider.gameObject);
-			score++;
-			Debug.Log(score);
-		}
-	}
+
 
 	// Gets called on every frame that we continue to touch a trigger
 	void OnTriggerStay2D(Collider2D collider) { }
@@ -129,7 +97,7 @@ public class Player : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D collider) { }
 
 	// Gets called on the exact frame that we first physically touch a solid collider
-	void OnCollisionEnter2D(Collision2D collision) { }
+
 
 	// Gets called on every frame that we continue to physically touch a solid collider
 	void OnCollisionStay2D(Collision2D collision)
