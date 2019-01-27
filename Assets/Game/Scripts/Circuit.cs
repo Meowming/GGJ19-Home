@@ -22,6 +22,7 @@ public class Circuit : MonoBehaviour {
     void OnDrawGizmos()
     {
 
+
         while (cnt < nodes.Count - 1)
         { 
             Gizmos.color = Color.red;

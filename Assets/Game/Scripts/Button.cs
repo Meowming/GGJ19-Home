@@ -16,15 +16,18 @@ public class Button : MonoBehaviour {
 	}
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isPlayerOnly && collision.tag == "Player")
-            foreach (Entity target in targets)
-            {
-                target.TriggerEnter();
-            }
+        if (isPlayerOnly)
+        {
+            if (collision.tag == "Player")
+                foreach (Entity target in targets)
+                {
+                    target.TriggerStart();
+                }
+        }
         else
             foreach (Entity target in targets)
             {
-                target.TriggerEnter();
+                target.TriggerStart();
             }
     }
 }
