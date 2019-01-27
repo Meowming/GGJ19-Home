@@ -12,6 +12,7 @@ public class NPCBehavior : MonoBehaviour
     private float typingSpeed = 0.005f;
     public GameObject diaBox;
 
+
     // Start is called before the first frame update
     void Start()
     {
