@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour {
 
-    [SerializeField] private GameObject target;
+    private GameObject target;
     [SerializeField] private float attackDistance;
     [SerializeField] private float attackInterval;
     [SerializeField] private GameObject bullet;
     private Vector2 firePosition;
     private float nextAttack;
+    private GameController gameController;
 
 	// Use this for initialization
 	void Start () {
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+
+        target = gameController.GetPlayer();
+
         nextAttack = Time.time + attackInterval;
+
 	}
 	
 	// Update is called once per frame
