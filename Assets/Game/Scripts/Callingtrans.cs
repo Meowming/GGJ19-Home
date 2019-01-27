@@ -18,18 +18,22 @@ public class Callingtrans : MonoBehaviour {
             if (m_Scene.name == "Tutorial")
             {
                 SceneManager.LoadScene("calling cg");
+                NPCBehavior.finished = false;
             }
             if (m_Scene.name == "calling cg")
             {
                 SceneManager.LoadScene("transmit1");
+                NPCBehavior.finished = false;
             }
             if (m_Scene.name == "transmit1")
             {
                 SceneManager.LoadScene("electric");
+                NPCBehavior.finished = false;
             }
             if (m_Scene.name == "endingcg")
             {
                 SceneManager.LoadScene("Ending");
+                NPCBehavior.finished = false;
             }
 
         }
