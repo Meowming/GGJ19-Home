@@ -124,6 +124,17 @@ namespace UnityStandardAssets._2D
             if(collision.collider.CompareTag("Enemy"))
             {
                 isDead = true;
+                Debug.Log("Dead");
+            }
+        }
+
+
+        private void OnTriggerEnter2D(Collider2D collider)
+        {
+            if (collider.CompareTag("Enemy"))
+            {
+                isDead = true;
+                Debug.Log("Dead");
             }
         }
     }

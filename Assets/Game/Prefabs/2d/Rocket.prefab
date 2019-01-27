@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212930195455745978}
   - component: {fileID: 114462982364615630}
   - component: {fileID: 50126668345894788}
+  - component: {fileID: 70469589624655032}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Enemy
@@ -49,7 +50,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1944306391448278}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -62,6 +63,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!70 &70469589624655032
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1944306391448278}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03, y: -0.03}
+  m_Size: {x: 0.39, y: 0.09}
+  m_Direction: 1
 --- !u!114 &114462982364615630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -74,7 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guided: 1
-  speed: 3
+  speed: 2
+  rotateSpeed: 70
+  lifeTime: 5
 --- !u!212 &212930195455745978
 SpriteRenderer:
   m_ObjectHideFlags: 1
