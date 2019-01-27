@@ -4,6 +4,11 @@
 [Bb]uild/
 [Bb]uilds/
 Assets/PolygonSciFiCity
+!Assets/PolygonSciFiCity/_Textures
+!Assets/PolygonSciFiCity/_Materials
+!Assets/PolygonSciFiCity/_Models
+!Assets/PolygonSciFiCity/_Shaders
+
 Assets/AssetStoreTools*
 
 # Visual Studio cache directory
