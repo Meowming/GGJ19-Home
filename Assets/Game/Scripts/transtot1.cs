@@ -25,6 +25,11 @@ public class transtot1 : MonoBehaviour {
         {
             names = "electric";
         }
+        if (m_Scene.name == "transbeforeend")
+        {
+            names = "Ending";
+        }
+
     }
    
     
