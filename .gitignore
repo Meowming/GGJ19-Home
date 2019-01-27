@@ -4,6 +4,7 @@
 [Bb]uild/
 [Bb]uilds/
 Assets/PolygonSciFiCity/*
+!Assets/PolygonSciFiCity/_Prefabs/
 !Assets/PolygonSciFiCity/_Textures/
 !Assets/PolygonSciFiCity/_Materials/
 !Assets/PolygonSciFiCity/_Models/
