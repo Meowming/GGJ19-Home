@@ -11,6 +11,7 @@ public class NPCBehavior : MonoBehaviour
     private int index = 0;
     private float typingSpeed = 0.005f;
     public GameObject diaBox;
+    static public bool finished =false;
 
 
     // Start is called before the first frame update
@@ -53,6 +54,7 @@ public class NPCBehavior : MonoBehaviour
         {
             textDisplay.text = "";
             diaBox.SetActive(false);
+            finished = true;
         }
     }
     // Update is called once per frame
