@@ -14,11 +14,11 @@ public class Entity : MonoBehaviour {
 
     }
 
-    public virtual void TriggerEnter()
+    public virtual void TriggerStart()
     {
         return;
     }
-    public virtual void TiriggerExit()
+    public virtual void TriggerEnd()
     {
         return;
     }
