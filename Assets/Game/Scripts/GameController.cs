@@ -61,7 +61,7 @@ using UnityStandardAssets._2D;
                 playerScript.enableMovment = true;
             }
 
-		if (playerScript.isDead && !deadScene)
+        if (player != null && playerScript.isDead && !deadScene)
             LoadDeadScene();
         }
 
