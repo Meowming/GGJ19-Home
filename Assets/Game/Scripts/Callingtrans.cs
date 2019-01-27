@@ -7,7 +7,7 @@ public class Callingtrans : MonoBehaviour {
 
     // Use this for initialization
     Scene m_Scene;
-    private void Start()
+    void Start()
     {
         m_Scene = SceneManager.GetActiveScene();
     }
@@ -27,8 +27,11 @@ public class Callingtrans : MonoBehaviour {
             {
                 SceneManager.LoadScene("electric");
             }
-        }
+            if (m_Scene.name == "endingcg")
+            {
+                SceneManager.LoadScene("Ending");
+            }
 
+        }
     }
-    
 }

@@ -27,6 +27,10 @@ public class transtot1 : MonoBehaviour {
         }
         if (m_Scene.name == "transbeforeend")
         {
+            names = "endingcg";
+        }
+        if (m_Scene.name == "endingcg")
+        {
             names = "Ending";
         }
 
