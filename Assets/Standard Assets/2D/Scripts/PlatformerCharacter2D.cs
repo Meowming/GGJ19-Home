@@ -39,7 +39,7 @@ namespace UnityStandardAssets._2D
             Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
             for (int i = 0; i < colliders.Length; i++)
             {
-                if (colliders[i].gameObject != gameObject)
+                if (colliders[i].gameObject != gameObject && !colliders[i].gameObject.CompareTag("Monologue"))
                     m_Grounded = true;
             }
             m_Anim.SetBool("Ground", m_Grounded);
@@ -112,6 +112,14 @@ namespace UnityStandardAssets._2D
             Vector3 theScale = transform.localScale;
             theScale.x *= -1;
             transform.localScale = theScale;
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if(collision.collider.CompareTag("Enemy"))
+            {
+
+            }
         }
     }
 }
