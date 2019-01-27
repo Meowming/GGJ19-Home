@@ -242,6 +242,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114225817468705146, guid: 78f7aaa279a773c4f8422064b4aee7ec,
+        type: 2}
+      propertyPath: m_margin.z
+      value: -333.35367
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78f7aaa279a773c4f8422064b4aee7ec, type: 2}
   m_IsPrefabParent: 0
