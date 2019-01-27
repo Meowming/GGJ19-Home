@@ -9,6 +9,6 @@ public class Mainm : MonoBehaviour {
     public void Goback()
     {
             SceneManager.LoadScene("MainMenu");
-        
+        Time.timeScale = 1f;
     }
 }
