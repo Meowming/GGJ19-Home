@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Elevator : Entity {
     public bool isRunning = false;
-    //public bool isLoop = false;
+    //  public bool isLoop = false;
     public float speed = 5f;
     public Vector3 direction = Vector3.up;
     public float moveDistance = 100f;
