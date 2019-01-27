@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guided: 1
-  speed: 2
+  speed: 4
   rotateSpeed: 70
   lifeTime: 5
 --- !u!212 &212930195455745978
