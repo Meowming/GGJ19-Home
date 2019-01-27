@@ -28,12 +28,16 @@ public class Rotate_4 : MonoBehaviour
             m_collider.bounds.min.y <= mousePosInWorld.y && mousePosInWorld.y <= m_collider.bounds.max.y &&
             m_collider.bounds.min.x <= mousePosInWorld.x && mousePosInWorld.x <= m_collider.bounds.max.x)
         {
+
+            //Debug.Log(currentPosition);
             this.transform.eulerAngles = new Vector3(0, 0, 90 * currentPosition);
             currentPosition++;
+            //Debug.Log(currentPosition);
         }
     }
     public int getPosition()
     {
-        return currentPosition % 4;
+        //Debug.Log(currentPosition);
+        return (currentPosition % 4);
     }
 }
