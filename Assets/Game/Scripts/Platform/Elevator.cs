@@ -8,18 +8,12 @@ public class Elevator : Entity {
     public float speed = 5f;
     public Vector3 direction = Vector3.up;
     public float moveDistance = 100f;
-    public AudioClip clip;
-    public AudioSource source;
+
 
     private float runTime = 0f;
 	// Use this for initialization
 	void Start () {
         runTime = moveDistance / speed;
-        if (source)
-        {
-            source.clip = clip;
-            source.Play();
-        }
 	}
 	
 	// Update is called once per frame
