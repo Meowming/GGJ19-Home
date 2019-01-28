@@ -35,7 +35,7 @@ public class SlideMoveTo : MonoBehaviour {
     {
         while (Mathf.Abs(player.position.z - targetZ) > 0.1f)
         {
-            print(Mathf.Abs(player.position.z - targetZ));
+            //print(Mathf.Abs(player.position.z - targetZ));
                 player.position -= Vector3.forward * deltaSpeed * Time.deltaTime;
             yield return null;
         }

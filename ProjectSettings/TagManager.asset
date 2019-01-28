@@ -12,6 +12,7 @@ TagManager:
   - Tile
   - Auidio
   - Battery
+  - Death
   layers:
   - Default
   - TransparentFX

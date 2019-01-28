@@ -22,6 +22,7 @@ namespace UnityStandardAssets._2D
 
         public bool isDead = false;
         public bool enableMovment = true;
+        public int health = 10;
 
         private void Awake()
         {
@@ -127,8 +128,14 @@ namespace UnityStandardAssets._2D
         {
             if(collision.collider.CompareTag("Enemy"))
             {
+                --health;
+                if(health<=0)
+                    isDead = true;
+                //Debug.Log("Dead");
+            }
+            else if (collision.collider.CompareTag("Death"))
+            {
                 isDead = true;
-                Debug.Log("Dead");
             }
         }
 
@@ -137,9 +144,19 @@ namespace UnityStandardAssets._2D
         {
             if (collider.CompareTag("Enemy"))
             {
-                isDead = true;
-                Debug.Log("Dead");
+                --health;
+                if (health <= 0)
+                    isDead = true;
+                //Debug.Log("Dead");
             }
+            else if (collider.CompareTag("Death"))
+            {
+                isDead = true;
+            }
+        }
+        private void OnGUI()
+        {
+            GUI.Label(new Rect(10, 10, 100, 20),"Hitpoint Left: " + health.ToString());
         }
     }
 }
