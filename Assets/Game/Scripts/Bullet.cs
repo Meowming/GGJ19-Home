@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour {
     [SerializeField] private float speed;
     [SerializeField] private float rotateSpeed;
     [SerializeField] private float lifeTime = 5f;
+    [SerializeField] private bool destroyOnCollide = true;
     private Vector2 currentDirection;
     private Vector2 direction;
 
@@ -20,10 +21,17 @@ public class Bullet : MonoBehaviour {
         if (target != null)
         {
             currentDirection = (target.transform.position - transform.position).normalized;
-            float angle = Vector2.SignedAngle(currentDirection, Vector2.right);
-            transform.Rotate(0f, 0f, -angle);
 
-            rgbd2d.velocity = currentDirection * speed;
+            if(guided)
+            {
+                float angle = Vector2.SignedAngle(currentDirection, Vector2.right);
+                transform.Rotate(0f, 0f, -angle);
+            }
+
+
+            Debug.Log(currentDirection.magnitude);
+
+            rgbd2d.velocity = currentDirection * speed * (1/ currentDirection.magnitude);
         }
 
         
@@ -57,5 +65,11 @@ public class Bullet : MonoBehaviour {
     public void SetTarget(GameObject Target)
     {
         target = Target;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+            Destroy(gameObject);
     }
 }

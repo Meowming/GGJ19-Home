@@ -90,9 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guided: 1
-  speed: 4
-  rotateSpeed: 70
-  lifeTime: 5
+  speed: 3
+  rotateSpeed: 50
+  lifeTime: 7
 --- !u!212 &212930195455745978
 SpriteRenderer:
   m_ObjectHideFlags: 1

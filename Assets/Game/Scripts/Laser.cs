@@ -9,13 +9,14 @@ public class Laser : MonoBehaviour {
 
     [SerializeField] private float fireInterval;
     [SerializeField] private float fireTime;
+    [SerializeField] private float startTime;
     private float nextFire;
     private float fireEnd;
     private GameObject laserBeanIns;
 
 	// Use this for initialization
 	void Start () {
-        nextFire = Time.time + fireInterval;
+        nextFire = Time.time + startTime;
 
     }
 	

@@ -6,7 +6,8 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour {
 
     private GameObject target;
-    [SerializeField] private float attackDistance;
+    [SerializeField] private float attackDistanceX;
+    [SerializeField] private float attackDistanceY;
     [SerializeField] private float attackInterval;
     [SerializeField] private GameObject bullet;
     private Vector2 firePosition;
@@ -45,7 +46,8 @@ public class EnemyAttack : MonoBehaviour {
 
         if (Time.time >= nextAttack)
         {
-            if((target.transform.position - transform.position).magnitude <= attackDistance)
+            if(Mathf.Abs(target.transform.position.x - transform.position.x) <= attackDistanceX &&
+                Mathf.Abs(target.transform.position.y - transform.position.y) <= attackDistanceY)
                 Attack();
 
         }
@@ -53,15 +55,15 @@ public class EnemyAttack : MonoBehaviour {
 
     void Attack()
     {
-        if((target.transform.position.x - transform.position.x) < 0)
+        if((target.transform.position.x - transform.position.x) > 0)
         {
-            firePosition = transform.position + Vector3.right * 0.5f;
+            firePosition = transform.position + Vector3.right;
         }
         else
         {
-            firePosition = transform.position + Vector3.left * 0.5f;
+            firePosition = transform.position + Vector3.left;
         }
-        Vector3 finalFirePos = new Vector3(firePosition.x, firePosition.y, transform.position.z);
+        Vector3 finalFirePos = new Vector3(firePosition.x, firePosition.y, target.transform.position.z- 1);
         GameObject bulletInstance = Instantiate(bullet, finalFirePos, transform.rotation);
         Bullet bulletScript = bulletInstance.GetComponent<Bullet>();
         bulletScript.SetTarget(target);
